@@ -12,3 +12,4 @@ Sources:
 TODO:
 1. Collect latest data from github, save into csv, use text to columns by comma in csv
 2. Read both csv with pandas and create master dataframe with active cases per km calculation (new column)
+3. Review NY Times implementation of mapbox covid maps
