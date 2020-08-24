@@ -3,7 +3,7 @@ Calculate activate case per sq km of US counties
 """
 
 import pandas as pd
-# pd.set_option('display.precision', 10)
+import requests
 
 
 
@@ -16,8 +16,20 @@ def get_land_df(path, km_sq_to_mi):
     return df
 
 
+def get_ny_cases():
+    url = 'https://www.worldometers.info/coronavirus/usa/new-york/'
+    header = {'User-agent': 'Mozilla/5.0'}
+    req = requests.get(url, headers=header)
+    return pd.read_html(req.text)
+
+
 def get_cases_df(path):
+    ny_df = get_ny_cases()
     df = pd.read_csv(path)
+    # Need to insert ny counties into df
+
+    import pdb
+    pdb.set_trace()
 
 
 if __name__ == '__main__':

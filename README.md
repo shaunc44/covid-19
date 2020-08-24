@@ -10,5 +10,9 @@ A different look at US covid data provided by Johns Hopkins.
 ## TODO:
 1. Collect latest data from github, save into csv, use text to columns by comma in csv
 2. Read both csv with pandas and create master dataframe with active cases per km calculation (new column)
-3. For land area, use column L in the excel file and convert to km if need be.
-4. Review NY Times implementation of mapbox covid maps
+3. Scrape NYC county numbers from: https://www.worldometers.info/coronavirus/usa/new-york/
+4. For land area, use column L in the excel file and convert to km if need be.
+5. Review NY Times implementation of mapbox covid maps
+
+
+
