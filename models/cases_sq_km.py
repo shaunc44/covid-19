@@ -16,15 +16,22 @@ def get_land_df(path, km_sq_to_mi):
     return df
 
 
-def get_ny_cases():
+def get_nyc_cases():
     url = 'https://www.worldometers.info/coronavirus/usa/new-york/'
     header = {'User-agent': 'Mozilla/5.0'}
     req = requests.get(url, headers=header)
-    return pd.read_html(req.text)
+    df = pd.read_html(req.text)[1]
+
+    nyc_counties = ['Bronx', 'Kings', 'Manhattan', 'Queens', 'Richmond']
+    df_list = []
+    for cnty in nyc_counties:
+        df_list.append(df.loc[df['County'] == cnty])
+
+    return pd.concat(df_list)
 
 
 def get_cases_df(path):
-    ny_df = get_ny_cases()
+    nyc_df = get_nyc_cases()
     df = pd.read_csv(path)
     # Need to insert ny counties into df
 
