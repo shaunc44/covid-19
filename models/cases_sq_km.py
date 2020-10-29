@@ -24,8 +24,8 @@ def get_nyc_cases():
 
     nyc_counties = ['Bronx', 'Kings', 'Manhattan', 'Queens', 'Richmond']
     df_list = []
-    for cnty in nyc_counties:
-        df_list.append(df.loc[df['County'] == cnty])
+    for county in nyc_counties:
+        df_list.append(df.loc[df['County'] == county])
 
     return pd.concat(df_list)
 
@@ -41,15 +41,15 @@ def get_cases_df(path):
 
 if __name__ == '__main__':
     land_path = '../data/us_land_area/us_county_land_area.csv'
-    cases_path = '../data/us_daily/2020-08-22.csv'
+    cases_path = '../data/us_daily/2020-10-27.csv'
     km_sq_to_mi = 2.589975
 
     df = get_land_df(land_path, km_sq_to_mi)
 
     df2 = get_cases_df(cases_path)
 
-    # import pdb
-    # pdb.set_trace()
+    import pdb
+    pdb.set_trace()
 
 
 
